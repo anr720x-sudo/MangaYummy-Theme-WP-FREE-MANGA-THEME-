@@ -1,0 +1,1872 @@
+﻿/* ═════════════════════════════════════════════════════════════════════════════
+   SINGLE CHAPTER READER - FULL WIDTH, DISTRACTION-FREE
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.single-chapter {
+    width: 100%;
+    background: #111;
+    color: #fff;
+}
+
+
+/* CHAPTER HEADER */
+.chapter-header {
+    text-align: center;
+    padding: 16px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.chapter-header h1 {
+    margin: 0;
+    font-size: 20px;
+    padding-top: 12px;
+}
+
+.chapter-header .manga-title-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    border-bottom: none;
+    padding-bottom: 2px;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.chapter-header .manga-title-link:hover {
+    color: #13667a;
+    border-bottom: none;
+}
+
+.chapter-header .chapter-label {
+    letter-spacing: 0.3px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* Override for chapter-label inside chapter-info-row */
+.chapter-info-row .chapter-label {
+    letter-spacing: 0.3px;
+    color: #13667a;
+    font-size: 16px;
+    margin: 0;
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.chapter-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: #222;
+    border-radius: 0;
+    padding: 8px 18px;
+    margin: 18px auto 18px auto;
+    max-width: 920px;
+}
+
+.topbar-left,
+.topbar-center,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-left {
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.topbar-center {
+    flex: 1 1 0;
+    flex-direction: column;
+    min-width: 0;
+    text-align: center;
+}
+
+.topbar-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.topbar-title a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+}
+.topbar-title a:hover {
+    color: #ceb1b1;
+}
+
+.topbar-chapter {
+    margin-top: 4px;
+    color: #ceb1b1;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.topbar-action,
+.topbar-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.topbar-back {
+    color: #fff;
+    background: rgba(255, 77, 79, 0.16);
+    border: 1px solid rgba(255, 77, 79, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+}
+
+.topbar-back.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.topbar-back:hover {
+    background: rgba(255, 77, 79, 0.24);
+}
+
+.topbar-arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #13667a;
+    border-right: 2px solid #13667a;
+    transform: rotate(-135deg);
+}
+
+.topbar-arrow.left {
+    transform: rotate(-135deg);
+}
+
+.topbar-arrow.right {
+    transform: rotate(45deg);
+}
+
+.topbar-right {
+    flex: 0 0 auto;
+    gap: 10px;
+}
+
+.topbar-action {
+    color: #fff;
+    cursor: pointer;
+}
+
+.topbar-action.home-btn {
+    width: 60px;
+    height: 54px;
+    padding: 0;
+    justify-content: center;
+}
+
+.topbar-action.home-btn i,
+.topbar-like-btn i {
+    font-size: 24px;
+}
+
+.topbar-like-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    background: transparent;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.topbar-like-count {
+    color: #fff;
+    font-size: 15px;
+}
+
+.topbar-like-btn:hover,
+.topbar-like-btn:focus-visible {
+    color: #c1fdb5;
+}
+
+.topbar-like-btn:hover i,
+.topbar-like-btn:hover .topbar-like-count,
+.topbar-like-btn:focus-visible i,
+.topbar-like-btn:focus-visible .topbar-like-count {
+    color: #c1fdb5;
+}
+
+.topbar-like-btn.active {
+    color: #c1fdb5;
+    border: none;
+}
+
+.topbar-like-btn.active i,
+.topbar-like-btn.active .topbar-like-count {
+    color: #c1fdb5;
+}
+
+.topbar-like-count {
+    color: #fff;
+}
+
+.chapter-like-toast {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+    background: rgba(51, 51, 51, 0.95);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    transition: opacity 0.2s ease;
+    opacity: 1;
+}
+
+.chapter-like-toast.success {
+    background: rgba(3, 199, 90, 0.95);
+}
+
+.chapter-like-toast.error {
+    background: rgba(255, 77, 79, 0.95);
+}
+
+@media (max-width: 768px) {
+    .chapter-topbar {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        text-align: left;
+        padding: 12px 14px;
+        gap: 10px;
+        overflow-x: auto;
+    }
+    .topbar-left,
+    .topbar-right {
+        width: auto;
+        justify-content: center;
+        flex: 0 0 auto;
+    }
+    .topbar-center {
+        width: auto;
+        flex: 1 1 0;
+        min-width: 0;
+        margin: 0 8px;
+    }
+    .topbar-title {
+        max-width: calc(100vw - 210px);
+    }
+    .topbar-action,
+    .topbar-back {
+        font-size: 12px;
+    }
+    .topbar-title {
+        font-size: 14px;
+    }
+    .topbar-chapter {
+        font-size: 11px;
+    }
+    .topbar-action.home-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* CHAPTER CONTROLS (Navigation) */
+.chapter-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* left group and right nav, whole block centered */
+    align-items: center;
+    padding: 12px !important;
+    background: #111;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+/* Mobile hamburger that toggles chapter controls (dropdown + load mode) */
+.mobile-nav-btn {
+    display: none;
+    background: #13667a;
+    color: #fff;
+    border: none;
+    padding: 7px 11px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 36px;
+}
+
+.mobile-nav-btn:hover {
+    background: rgba(255, 77, 79, 0.9);
+}
+
+.mobile-nav-btn.open {
+    /* no rotation animation */
+    transform: none;
+}
+
+.mobile-nav-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.chapter-controls.bottom-controls {
+    justify-content: stretch;
+    gap: 0;
+    padding: 0 !important;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin-top: 18px;
+    max-width: 920px;
+}
+
+.chapter-controls.bottom-controls .nav-btn {
+    flex: 1 1 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #222;
+    background-image: linear-gradient(#13667a, #13667a);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: right center;
+    border: none;
+    color: #fff;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    min-height: 48px;
+    transition: background-size 0.25s ease, color 0.2s ease;
+    white-space: nowrap;
+    border-radius: 0;
+}
+
+.chapter-controls.bottom-controls .nav-btn:last-child {
+    background-position: left center;
+}
+
+.chapter-controls.bottom-controls .nav-btn:hover,
+.chapter-controls.bottom-controls .nav-btn:focus-visible,
+.chapter-controls.bottom-controls .nav-btn:active {
+    background-size: 100% 100%;
+}
+
+.chapter-controls.bottom-controls .nav-btn:first-child,
+.chapter-controls.bottom-controls .nav-btn:last-child {
+    border-radius: 0;
+}
+
+.chapter-controls.bottom-controls .nav-btn + .nav-btn {
+    border-left: 1px solid #13667a;
+}
+
+.chapter-controls.bottom-controls .nav-btn.icon-only {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 0;
+}
+
+.chapter-controls.bottom-controls .nav-btn.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Make icon-only buttons inside bottom controls match topbar icon dimensions */
+.chapter-controls.bottom-controls .nav-btn.icon-only {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Place chapter dropdown + load-mode at left, navigation buttons to the right */
+.chapter-controls .chapter-dropdown,
+.chapter-controls .page-load-toggle {
+    margin-right: 0;
+}
+.chapter-controls .page-load-toggle {
+    margin-left: 0;
+}
+
+/* Left controls (chapter + load mode) should sit inline */
+.chapter-controls .controls-left {
+    display: inline-flex;
+    gap: 0;
+    align-items: center;
+}
+.chapter-controls .controls-left .chapter-dropdown,
+.chapter-controls .controls-left .page-load-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+.chapter-controls .controls-left .chapter-dropdown .chapter-current,
+.chapter-controls .controls-left .page-load-toggle select {
+    background: #222;
+    border: none;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    min-height: auto;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border-radius: 0;
+}
+.chapter-controls .controls-left .chapter-dropdown .chapter-current {
+    min-width: 140px;
+    text-align: left;
+}
+.chapter-controls .chapter-nav {
+    margin-left: 0; /* alignment handled by space-between on parent */
+    display: inline-flex;
+    gap: 0;
+    align-items: center;
+}
+.chapter-controls .chapter-nav .nav-btn {
+    margin-left: 0;
+    flex: 1 1 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #222;
+    background-image: linear-gradient(#13667a, #13667a);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: right center;
+    border: none;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-size 0.25s ease, color 0.2s ease;
+    white-space: nowrap;
+    border-radius: 0;
+}
+.chapter-controls .chapter-nav .nav-btn:last-child {
+    background-position: left center;
+}
+.chapter-controls .chapter-nav .nav-btn:hover,
+.chapter-controls .chapter-nav .nav-btn:focus-visible,
+.chapter-controls .chapter-nav .nav-btn:active {
+    background-size: 100% 100%;
+}
+.chapter-controls .chapter-nav .nav-btn + .nav-btn {
+    border-left: 1px solid #13667a;
+}
+
+.nav-btn {
+    background: #13667a;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: #13667a;
+    color: #fff;
+}
+
+.nav-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ARROW STYLING */
+.nav-btn .arrow {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.nav-btn .arrow.left {
+    transform: rotate(-135deg);
+}
+
+.chapter-controls:not(.bottom-controls) .chapter-nav .nav-btn.back-to-manga > svg.icon-info {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    vertical-align: middle;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.chapter-controls.bottom-controls .nav-btn.back-to-manga > svg.icon-info,
+.chapter-controls.bottom-controls .nav-btn.icon-only .icon-info {
+    width: 20px;
+    height: 20px;
+}
+
+/* Icon-only buttons should keep a consistent size */
+.nav-btn.icon-only {
+    padding: 10px;
+    width: 40px;
+    height: 37px;
+    justify-content: center;
+}
+
+.chapter-controls:not(.bottom-controls) .nav-btn.back-to-manga:hover .icon-info {
+    opacity: 0.9;
+}
+
+.chapter-controls:not(.bottom-controls) .nav-btn.back-to-manga:active .icon-info {
+    transform: scale(0.95);
+}
+
+
+/* CHAPTERS SELECT (MATCH NAV-BTN STYLING) */
+#chapterSelect,
+.nav-select,
+.selectpicker.single-chapter-select {
+    background: #0f0f0f;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: auto;
+    line-height: 1.4;
+}
+
+#chapterSelect:hover,
+.nav-select:hover,
+.selectpicker.single-chapter-select:hover {
+    background: #222;
+}
+
+#chapterSelect:focus,
+.nav-select:focus,
+.selectpicker.single-chapter-select:focus {
+    outline: none;
+    background: #222;
+}
+
+/* Custom Chapter Dropdown */
+.chapter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.chapter-current {
+    background: #0f0f0f;
+    color: #fff;
+    border: none;
+    padding: 8px 14px 8px 14px;
+    padding-right: 36px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+    text-align: left;
+    position: relative;
+    background-color: rgba(235, 235, 235, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chapter-current::after {
+    content: "\f0dc";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease;
+    pointer-events: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.chapter-current.open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.chapter-current:hover,
+.chapter-current.open {
+    background: #222;
+}
+
+.chapter-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 120px;
+    max-height: calc(15 * 2.4em);
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.chapter-list.open {
+    display: block;
+}
+
+.chapter-list li {
+    padding: 5px 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    line-height: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* GIF + Emoji toolbar for comments */
+.comment-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-format-btn,
+.emoji-picker-btn,
+.gif-picker-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #333;
+  background: #252525;
+  color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.text-format-btn:hover,
+.emoji-picker-btn:hover,
+.gif-picker-btn:hover {
+  background: #303030;
+  transform: translateY(-2px);
+}
+
+.text-format-btn:active,
+.emoji-picker-btn:active,
+.gif-picker-btn:active {
+  transform: translateY(0);
+}
+
+.emoji-picker-popup,
+.gif-picker-popup {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  width: 320px;
+  z-index: 1000;
+  display: none;
+  animation: slideDown 0.2s ease-out;
+}
+
+.gif-search-wrapper {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.gif-search-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #252525;
+  color: #eee;
+}
+
+.gif-search-btn {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #13667a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.gif-item {
+  cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #111;
+}
+
+.gif-item img {
+  width: 100%;
+  height: 80px;
+  
+  display: block;
+}
+
+.comment-text img.comment-gif,
+.comment-gif {
+  width: 50% !important;
+  max-width: 50% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-left: 0;
+  margin-right: 0;
+    font-size: 13px;
+}
+
+.chapter-list li:hover {
+    background: #222;
+}
+
+.chapter-list li.active {
+    background: #fff;
+    color: #0f0f0f;
+}
+
+
+
+
+/* CHAPTER PAGES (FULL WIDTH) */
+.chapter-pages {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: #111;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+    /* GPU acceleration for smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile chapter page background override */
+@media (max-width: 768px) {
+    .chapter-pages {
+        background: #fff;
+    }
+}
+
+/* Remove global background pattern on chapter pages */
+body.single-chapter .bg-pattern {
+    display: none !important;
+}
+
+/* Marker class used by JS when mobile controls are open */
+.chapter-pages.controls-open {
+    position: relative;
+}
+
+.chapter-image,
+.chapter-page {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: 0;
+    background: #111;
+    display: block;
+    margin: 0;
+    padding: 0;
+    /* Prevent image dragging on mobile */
+    -webkit-user-drag: none;
+    user-select: none;
+    /* Remove mobile highlight / tap flash */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    /* Prevent overscroll/scroll chaining while tapping on edges */
+    overscroll-behavior-x: contain;
+    /* Smooth rendering */
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Hide alt text for loading images */
+.chapter-page[alt=""]::before,
+.chapter-page[alt=""]::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Lazy loading states */
+.chapter-page.lazy {
+    min-height: 300px;
+    background: linear-gradient(90deg, #1a1a1a 25%, #252525 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    /* Aspect ratio hint for manga pages (reduces layout shift) */
+}
+
+.chapter-page.loaded {
+    min-height: auto;
+    aspect-ratio: auto;
+    background: none;
+    animation: none;
+}
+
+/* load-mode selector styling */
+.page-load-toggle {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0 0 0 10px;
+    position: relative; /* needed for pseudo caret */
+}
+.page-load-toggle select {
+    /* Match chapter-dropdown button appearance */
+    background: #0f0f0f;
+    color: #fff;
+    border: 1px solid #222;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.page-load-toggle select:hover {
+    background: #222;
+    box-shadow: none;
+    outline: none;
+}
+
+/* caret arrows (up + down) on the right of the loadMode selector */
+.page-load-toggle::after {
+    /* use the same FontAwesome caret as .chapter-current */
+    content: "\f0dc";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease;
+    pointer-events: none;
+    color: #fff;
+    font-size: 14px;
+}
+.page-load-toggle.open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+.page-counter {
+    display: inline-block;
+    margin-left: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Zoom control (desktop only) */
+.zoom-control {
+    display: none !important;
+}
+
+/* Floating zoom FAB */
+.zoom-fab-wrapper {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.zoom-fab {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #13667a;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+}
+
+.zoom-popup {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(15,15,15,.95);
+    border: 1px solid #333;
+    box-shadow: 0 6px 16px rgba(0,0,0,.4);
+    transform-origin: bottom left;
+}
+.zoom-popup.hidden {
+    display: none;
+}
+
+.zoom-popup .zoom-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: #13667a;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.zoom-popup .zoom-btn:hover {
+    background: #ff7875;
+}
+
+.zoom-popup .zoom-level {
+    min-width: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .zoom-fab-wrapper {
+        display: none !important;
+    }
+    .zoom-fab-wrapper.mobile-visible {
+        display: none !important;
+    }
+    .zoom-popup {
+        right: auto;
+        left: 0;
+        width: auto;
+    }
+}
+
+.zoom-control .zoom-btn {
+    background: #13667a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    width: 26px;
+    height: 26px;
+    line-height: 1;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.zoom-control .zoom-btn:hover {
+    background: #ff7875;
+}
+.zoom-control .zoom-level {
+    min-width: 46px;
+    text-align: center;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .zoom-control {
+        display: none !important;
+    }
+}
+
+
+/* one-page mode hides all but the current image */
+.chapter-pages.one-page img.chapter-page {
+    display: none;
+}
+.chapter-pages.one-page img.chapter-page.current {
+    display: block;
+}
+
+
+/* clickable cursor in special modes */
+.chapter-pages.one-page img.chapter-page,
+.chapter-pages.manual img.chapter-page {
+    cursor: pointer;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Hide images that haven't loaded yet (data-src without src) */
+.chapter-page[data-src]:not([src]) {
+    display: block;
+    min-height: 400px;
+    /* Ensure no alt text is visible during loading */
+    content-visibility: auto;
+    contain: layout style paint;
+}
+
+.chapter-page[src] {
+    display: block;
+    opacity: 1;
+}
+
+.chapter-pages {
+    width: 100% !important;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chapter-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-width: 620px !important;
+}
+
+/* Long strip — webtoon */
+.chapter-pages.long-strip .chapter-page,
+.chapter-pages.webtoon .chapter-page {
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    display: block;
+    margin: 0 auto;
+    min-width: 0;
+    object-fit: contain;
+    user-select: none;
+    word-break: break-all;
+}
+
+/* Single page mode */
+.chapter-pages.single-page .chapter-page,
+.chapter-pages.one-page .chapter-page {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Removed webtoon height limit for vertical pages: max-height calc(...) was replaced */
+
+/* Ensure chapter pages reserve space on desktop; remove on mobile to avoid excessive tall placeholders */
+@media (max-width: 768px) {
+  .chapter-page,
+  .chapter-page img,
+  .chapter-pages.one-page img {
+    min-height: unset !important;
+  }
+}
+
+/* Hide bottom controls when in one-page/manual mode (better coverage) */
+.chapter-pages.one-page + .chapter-controls.bottom-controls,
+.chapter-pages.manual + .chapter-controls.bottom-controls,
+.chapter-pages.single-page + .chapter-controls.bottom-controls,
+.chapter-pages.one-page ~ .chapter-controls.bottom-controls,
+.chapter-pages.manual ~ .chapter-controls.bottom-controls,
+.chapter-pages.single-page ~ .chapter-controls.bottom-controls,
+.chapter-pages.one-page .chapter-controls.bottom-controls,
+.chapter-pages.manual .chapter-controls.bottom-controls,
+.chapter-pages.single-page .chapter-controls.bottom-controls {
+    display: none !important;
+}
+
+.no-images {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 16px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    text-decoration: none !important;
+}
+
+.no-images-subtitle {
+    font-size: 14px;
+    margin: 10px 0 20px 0;
+    color: #777;
+}
+
+.retry-btn {
+    background: #13667a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #02a84a;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE - MOBILE
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+    /* Remove browser focus/border effect on loadMode select */
+    .page-load-toggle select:focus,
+    .page-load-toggle select:active,
+    .page-load-toggle:focus-within select {
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        border-color: #222 !important;
+        background: #222 !important;
+    }
+    /* Some browsers show inner focus on buttons/selects; clear that too */
+    .page-load-toggle select::-moz-focus-inner {
+        border: 0;
+    }
+@media (max-width: 768px) {
+    .chapter-header {
+        padding: 10px 8px;
+        font-size: 18px;
+    }
+
+    .chapter-header h1 {
+        font-size: 18px;
+        padding-top: 8px;
+    }
+
+    .chapter-controls {
+        justify-content: space-between;
+        gap: 8px;
+        padding: 8px;
+        background: rgba(17, 17, 17, 0.95);
+    }
+
+    .chapter-controls {
+        position: relative;
+    }
+
+    .chapter-controls .mobile-nav-btn {
+        display: inline-flex;
+        order: -1;
+        margin-right: auto;
+    }
+
+    .chapter-controls .controls-left {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 12px;
+        background: rgba(17, 17, 17, 0.95);
+        border-top: 1px solid #222;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    .chapter-controls .controls-left.open {
+        display: flex;
+    }
+
+    .nav-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+        /* Larger touch target */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mobile-specific icon-only button size */
+    .nav-btn.icon-only {
+        padding: 8px;
+        width: 36px;
+        height: 30px;
+        justify-content: center;
+    }
+    
+    /* Smaller placeholder on mobile */
+    .chapter-page.lazy {
+        min-height: 200px;
+    }
+    
+    .chapter-page[data-src]:not([src]) {
+        min-height: 200px;
+    }
+
+    .chapter-toggle {
+        min-width: 100px;
+    }
+
+    .chapter-list {
+        max-height: calc(15 * 2.4em);
+    }
+
+    .chapter-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .chapter-image {
+        width: 100vw;
+    }
+
+    .no-images {
+        padding: 40px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE - DESKTOP
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .chapter-pages {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .chapter-page {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        display: block;
+        margin: 0 auto;
+        max-width: 620px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chapter-pages {
+        margin-left: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Limit and center ONLY the images from the chapter reader */
+    .chapter-pages img.chapter-page {
+        display: block;
+        width: auto !important;
+        height: auto;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Portrait images (manga normal) */
+    .chapter-page[width] {
+        max-width: 620px !important;
+        width: auto !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Webtoon/tall images */
+    .chapter-pages:not(.one-page):not(.single-page) .chapter-page {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+}
+
+/* CHAPTER TITLE STYLING */
+.chapter-header .chapter-title {
+    margin: 8px 0 4px 0;
+    font-size: 18px;
+    color: #ddd;
+    text-align: center;
+}
+
+.chapter-info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.chapter-info-row .chapter-title {
+    margin: 0;
+    flex: 0 1 auto;
+    min-width: 0;
+    text-align: center;
+    color: #13667a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chapter-separator {
+    margin: 0 1px;
+    color: #ccc;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   MOBILE-SPECIFIC OPTIMIZATIONS
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+/* Tap to show/hide controls indicator */
+.swipe-hint {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.swipe-hint.show {
+    opacity: 1;
+}
+
+/* Loading progress indicator - HIDDEN */
+.chapter-progress {
+    display: none !important;
+}
+
+/* Small screens - even more compact */
+@media (max-width: 480px) {
+    .chapter-header {
+        padding: 8px 6px;
+    }
+    
+    .chapter-header h1 {
+        font-size: 18px;
+    }
+    
+    .chapter-controls {
+        gap: 6px;
+        padding: 6px;
+    }
+    
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+    
+    .chapter-dropdown .chapter-current {
+        font-size: 12px;
+    }
+    
+    .chapter-info-row {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .chapter-separator {
+        display: inline;
+    }
+    
+    .chapter-page.lazy {
+        min-height: 150px;
+    }
+}
+
+/* Landscape mode on mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+    .chapter-controls {
+        padding: 6px;
+    }
+    
+    .nav-btn {
+        padding: 6px 12px;
+    }
+    
+    .chapter-header {
+        padding: 6px;
+    }
+    
+    .chapter-header h1 {
+        font-size: 14px;
+        padding-top: 4px;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .chapter-page.lazy {
+        animation: none;
+        background: #1a1a1a;
+    }
+    
+    .swipe-hint {
+        transition: none;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   MENTION AUTOCOMPLETE STYLES
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+.mention-autocomplete {
+  position: absolute;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  min-width: 250px;
+  display: none;
+}
+
+.mention-autocomplete.show {
+  display: block;
+}
+
+.mention-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.mention-item:last-child {
+  border-bottom: none;
+}
+
+.mention-item:hover,
+.mention-item.active {
+  background: #13667a;
+}
+
+.mention-item.friend {
+  background: rgba(3, 199, 90, 0.1);
+  border-left: 3px solid #13667a;
+}
+
+.mention-item.friend:hover,
+.mention-item.friend.active {
+  background: #13667a;
+}
+
+.mention-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.mention-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mention-username {
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mention-display-name {
+  color: #999;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mention-friend-badge {
+  color: #13667a;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+/* Ensure @mentions inside comment bodies are visible (white) on chapter pages */
+body.single-chapter .comment-body .mention-link,
+body.single-chapter .comment-body .mention-link:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Make comment textarea on chapter pages match single-manga (same font, padding, focus state) */
+.single-chapter .comment-textarea {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border: 1px solid #333 !important;
+  padding: 12px;
+  font-size: 14px;
+  min-height: 100px;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.single-chapter .comment-textarea::placeholder {
+  color: #aaa;
+}
+
+.single-chapter .comment-textarea:focus {
+  border-color: #13667a;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   ENGLISH CONTINUATION NOTICE
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+.english-continuation-notice {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 1px solid #13667a;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(3, 199, 90, 0.1);
+    overflow: hidden;
+    animation: slideInNotice 0.5s ease-out;
+}
+
+@keyframes slideInNotice {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notice-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 16px;
+}
+
+.notice-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notice-text {
+    flex: 1;
+}
+
+.notice-text strong {
+    display: block;
+    color: #13667a;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.notice-text p {
+    margin: 0;
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.notice-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.btn-continue-english {
+    background: #13667a;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.btn-continue-english:hover {
+    background: #02a34a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(3, 199, 90, 0.3);
+}
+
+.btn-dismiss-notice {
+    background: transparent;
+    color: #999;
+    border: 1px solid #555;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.btn-dismiss-notice:hover {
+    background: #333;
+    color: #ccc;
+    border-color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .notice-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .notice-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-continue-english,
+    .btn-dismiss-notice {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .chapter-rating-section {
+        padding: 12px;
+    }
+
+    .rating-box {
+        padding: 15px;
+    }
+
+    .rating-box h3,
+    .rating-box p {
+        font-size: 14px;
+    }
+
+    .mangayummy-rating-stars {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .mangayummy-rating-stars .star {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ===== CHAPTER RATING SECTION ===== */
+.chapter-rating-section {
+    margin: 40px 0;
+    padding: 30px 20px;
+}
+
+.rating-box {
+    max-width: 500px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+}
+
+.rating-box h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.rating-box p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Rating stars styling (shared with single-manga) */
+.chapter-rating-section .mangayummy-rating-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.chapter-rating-section .mangayummy-rating-stars .star {
+    width: 28px;
+    height: 28px;
+    background: #444;
+    cursor: pointer;
+    transition: .2s;
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%,
+        68% 57%, 79% 91%, 50% 70%,
+        21% 91%, 32% 57%, 2% 35%, 39% 35%
+    );
+}
+
+/* Chapter-specific GIF styles */
+.single-chapter .comment-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.single-chapter .comment-text img.comment-gif,
+.single-chapter .comment-text .comment-gif {
+    width: 50% !important;
+    max-width: 50% !important;
+    height: auto !important;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.single-chapter .comment-text {
+    white-space: normal;
+    word-break: break-word;
+    pointer-events: auto;
+}
+
+.chapter-rating-section .mangayummy-rating-stars .star:hover,
+.chapter-rating-section .mangayummy-rating-stars .star.filled,
+.chapter-rating-section .mangayummy-rating-stars .star.hover-preview {
+    background: #f5c400;
+}
+
+.chapter-rating-section .mangayummy-rating-stars .star.half-filled {
+    background: #f5c400;
+    position: relative;
+}
+
+.chapter-rating-section .mangayummy-rating-stars .star.half-filled::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    background: #444;
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%,
+        68% 57%, 79% 91%, 50% 70%,
+        21% 91%, 32% 57%, 2% 35%, 39% 35%
+    );
+}
+
+
+.chapter-rating-section .mangayummy-rating-text {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.chapter-rating-section .mangayummy-rating-wrap.rating-loading .star {
+    opacity: 0.6;
+    pointer-events: none;
+}

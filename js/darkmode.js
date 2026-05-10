@@ -1,0 +1,1 @@
+// Dark mode script removed - moved to footer.php

@@ -1,0 +1,139 @@
+/* ==================== RECOMANDATE SECTION - Separate CSS File ====================
+ * Dedicated styles for the recommended manga section
+ * Only loaded on front page for better performance
+ */
+
+.recommended-section {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 16px;
+}
+
+/* Swiper Container - PRESENT HEIGHT WITH ASPECT-RATIO + HIDDEN UNTIL INIT */
+.recommended-swiper {
+  width: 100%;
+  position: relative;
+  touch-action: pan-y;
+  overflow: hidden;
+  min-height: 310px;
+  visibility: hidden;
+}
+
+.recommended-swiper .swiper-slide {
+  height: auto;
+}
+
+/* Swiper Wrapper */
+.recommended-swiper .swiper-wrapper {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+/* Manga Cards - aspect-ratio pe imagini DOAR */
+.recommended-swiper .manga-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended-swiper .manga-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  
+}
+
+/* Manga Cards - LASA SWIPER SA CONTROLEZE DIMENSIUNILE */
+.recommended-swiper .manga-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.recommended-swiper .manga-card a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Imagini - BLOCHEAZA DRAG */
+.recommended-swiper img,
+.recommended-swiper .manga-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.2s ease;
+
+  /* Disable native drag pe desktop */
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.recommended-swiper .manga-card a:hover img,
+.recommended-swiper .manga-card a:hover .manga-cover {
+  transform: scale(1.05);
+}
+
+/* Cursor: default by default; show grabbing while dragging */
+.recommended-swiper .swiper-slide {
+  cursor: default;
+}
+.recommended-swiper.dragging .swiper-slide {
+  cursor: grabbing;
+}
+
+.recommended-swiper .manga-title {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+/* Swiper Navigation Buttons - MANGAYUMMY STYLE */
+.recommended-swiper .swiper-button-prev,
+.recommended-swiper .swiper-button-next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10;
+  border: none;
+  outline: none;
+}
+
+.recommended-swiper .swiper-button-prev:hover,
+.recommended-swiper .swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.recommended-swiper .swiper-button-prev {
+  left: -18px;
+}
+
+.recommended-swiper .swiper-button-next {
+  right: -18px;
+}
+
+/* Mobile - Hide buttons, swipe only */
+@media (max-width: 768px) {
+  .recommended-swiper .swiper-button-prev,
+  .recommended-swiper .swiper-button-next {
+    display: none;
+  }
+
+  .recommended-swiper .manga-card {
+    width: 110px;
+  }
+}

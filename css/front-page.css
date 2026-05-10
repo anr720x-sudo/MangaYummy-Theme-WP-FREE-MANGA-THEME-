@@ -1,0 +1,1880 @@
+﻿/* Front Page - Homepage Styles */
+/* Separated from global style.css for cleaner organization */
+
+/* add bottom border under each section header */
+.section-header {
+  border-bottom: 1px solid #808080;
+  padding-bottom: 8px; /* small gap between title and content */
+}
+
+/* force 23px header font for all front-page sections */
+.section-header h2 {
+  font-size: 23px !important;
+  /* show section titles with first letters capitalized */
+  text-transform: capitalize;
+}
+
+/* previous uppercase rule removed; all front-page section headers now capitalize automatically */
+
+/* helper class to keep hyphenated second word lowercase */
+.section-header h2 .lowercase {
+  text-transform: lowercase; /* override capitalize on span content */
+}
+
+.frontpage-discord-banner {
+  width: 100%;
+  background: linear-gradient(90deg, #424549 0%, #27292c 100%);
+  border-bottom: 2px solid #13667a;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.frontpage-discord-banner a {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.frontpage-discord-banner a:hover {
+  color: #13667a;
+}
+
+.frontpage-discord-banner .discord-banner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 77, 79, 0.16);
+}
+
+.frontpage-discord-banner .discord-banner-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* POPULAR MANGA SECTION */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.popular-manga,
+.recommended-section,
+.recently-added-section,
+.latest-updates,
+.cele-mai-recente,
+.recent-comments-section {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--head);
+  box-shadow: -4px 6px 4px rgba(0, 0, 0, 0.25), 4px 0 4px rgba(0, 0, 0, 0.25), 0 5px 4px rgba(0, 0, 0, 0.28);
+}
+
+/* recent comments should be visible on front page */
+.recent-comments-section {
+  display: block;
+}
+
+.popular-manga .section-header,
+.recommended-section .section-header,
+.recently-added-section .section-header,
+.latest-updates .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.popular-manga .section-header h2,
+.popular-manga .section-title,
+.recommended-section .section-header h2,
+.recently-added-section .section-header h2,
+.latest-updates .section-header h2 {
+  margin: 0;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  font-size: 23px;
+  flex: 1;
+  background: transparent !important;  
+}
+
+.popular-manga .section-nav,
+.recommended-section .section-nav,
+.recently-added-section .section-nav,
+.latest-updates .section-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.popular-manga .section-nav-btn,
+.recommended-section .section-nav-btn,
+.recently-added-section .section-nav-btn,
+.latest-updates .section-nav-btn {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 0;
+  border-radius: 0.25rem;
+  min-width: 2.2rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.popular-manga .section-nav-btn:hover:not(:disabled),
+.recommended-section .section-nav-btn:hover:not(:disabled),
+.recently-added-section .section-nav-btn:hover:not(:disabled),
+.latest-updates .section-nav-btn:hover:not(:disabled) {
+  background-color: #13667a;
+  color: #fff;
+}
+
+.popular-manga .section-nav-btn:disabled,
+.popular-manga .section-nav-btn[disabled],
+.recommended-section .section-nav-btn:disabled,
+.recommended-section .section-nav-btn[disabled],
+.recently-added-section .section-nav-btn:disabled,
+.recently-added-section .section-nav-btn[disabled],
+.latest-updates .section-nav-btn:disabled,
+.latest-updates .section-nav-btn[disabled] {
+  background-color: #1a1a1a;
+  cursor: unset;
+  opacity: 0.4;
+}
+
+/* Section Dropdown */
+.section-dropdown {
+  position: relative;
+}
+
+.section-dropdown-btn {
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 0;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.section-dropdown-btn:hover {
+  color: #13667a;
+   background-color: rgba(77, 160, 255, 0);
+}
+
+.section-dropdown-btn .dropdown-label {
+  font-weight: 500;
+}
+
+.section-dropdown-btn i {
+  font-size: 1.1rem;
+}
+
+.section-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.125rem;
+  background-color: rgba(26, 26, 26, 0.85);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 0;
+  border-radius: 0.6rem;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.section-dropdown.open .section-dropdown-menu {
+  display: block;
+}
+
+.section-dropdown-menu .dropdown-item {
+  padding: 0.5rem 1rem;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.section-dropdown-menu .dropdown-item:hover {
+  background: rgba(255, 77, 79, 0.2);
+  color: #fff;
+}
+
+.section-dropdown-menu .dropdown-item.active {
+  background: #13667a;
+  color: #fff;
+}
+
+.manga-carousel.popular-today {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel--active .carousel-root {
+  justify-content: flex-start;
+}
+
+.carousel--static .carousel-root {
+  justify-content: center;
+  transform: none !important;
+}
+
+.carousel--static .arrow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .manga-carousel.popular-today {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+  }
+  
+  .manga-carousel.popular-today .carousel-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scroll-behavior: smooth;
+  }
+}
+
+@media (max-width: 768px) {
+  .manga-carousel.popular-today > .carousel-root {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+  }
+}
+
+@media (max-width: 768px) {
+  .manga-carousel.popular-today .manga-cell {
+    flex: 0 0 auto;
+  }
+}
+
+.manga-carousel .manga-cell {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 240px;
+}
+
+.popular-manga,
+.manga-carousel,
+.section-title {
+  position: static;
+}
+
+.popular-manga * {
+  top: auto;
+  left: auto;
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* CAROUSEL STYLES */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.manga-carousel {
+  position: relative;
+  overflow: visible;
+  padding: 10px 8px;
+  border-radius: 16px;
+}
+
+.manga-carousel .carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y pinch-zoom;
+}
+
+.manga-carousel .carousel-track {
+  touch-action: pan-y;
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.manga-carousel .carousel-root.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.manga-carousel .carousel-root::-webkit-scrollbar {
+  display: none;
+}
+
+.manga-carousel .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(3, 199, 90, 0.15);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  border: 1px solid rgba(3, 199, 90, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.manga-carousel:hover .arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.manga-carousel .arrow:hover {
+  background: rgba(3, 199, 90, 0.4);
+  border-color: rgba(3, 199, 90, 0.6);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(3, 199, 90, 0.4);
+}
+
+.manga-carousel .arrow.left {
+  left: 10px;
+}
+
+.manga-carousel .arrow.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .manga-carousel .arrow {
+    display: none;
+  }
+}
+
+.manga-carousel .manga-cell {
+  cursor: pointer;
+  position: relative;
+  flex: 0 0 auto;
+  width: 180px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+  /* Hint browser to promote animations to compositor for smoother scroll/animation */
+  will-change: transform, opacity;
+}
+
+.manga-carousel .manga-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  pointer-events: none;
+  z-index: 10;
+  transition: border-color 0.3s ease;
+}
+
+.manga-carousel .manga-cell:hover::after {
+  border-color: rgba(3, 199, 90, 0.6);
+}
+
+.manga-carousel .manga-cell a {
+  position: absolute;
+  inset: 0;
+  display: block;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.manga-carousel .manga-cell img {
+  width: 100%;
+  height: 100%;
+  
+  display: block;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+}
+
+.manga-carousel .manga-cell:hover img {
+  filter: brightness(0.85);
+}
+
+.manga-carousel .manga-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 12px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: padding 0.3s ease;
+}
+
+.manga-carousel .manga-cell:hover .manga-title {
+  padding-bottom: 16px;
+}
+
+.manga-carousel .manga-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  height: auto;
+  line-height: 1.2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.manga-carousel .manga-badge svg {
+  display: block;
+}
+
+.manga-carousel .manga-badge span {
+  display: flex;
+  align-items: center;
+  height: 14px;
+  line-height: 1;
+}
+
+.manga-carousel .manga-rank,
+.num {
+ content: counter(slide);
+  color: #fff;
+  background-color: #222;
+  letter-spacing: -.02rem;
+  z-index: 1;
+  border-bottom-left-radius: .6rem;
+  padding:.35rem .65rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.3rem;
+  position: absolute;
+  top: -.3rem;
+  right: -.3rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.manga-carousel .manga-cell:hover .manga-rank,
+.manga-carousel .manga-cell:hover .num {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+
+.badge-icon {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+/* badge-pulse and badge-bounce animations defined in style_new.css */
+
+.manga-carousel .manga-badge:hover .badge-icon {
+  animation: badge-bounce 0.6s ease;
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* RESPONSIVE CAROUSEL */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* WRAPPER - RESPONSIVE FIX */
+.manga-carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.carousel-viewport {
+  overflow: hidden !important;
+  width: 100%;
+  user-select: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  transform: translateX(0);
+  transition: transform 0.35s ease;
+  will-change: transform;
+  overflow: hidden !important;
+  width: max-content;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.manga-cell {
+  flex: 0 0 180px;
+  max-width: none;
+}
+
+.manga-cell img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+/* NAVIGATION BUTTONS - RESPONSIVE */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+
+/* DESKTOP MARE (≥1600px) */
+@media (min-width: 1600px) {
+  .manga-carousel {
+    padding: 0;
+  }
+
+  .carousel-arrow.left {
+    left: 10px;
+  }
+
+  .carousel-arrow.right {
+    right: 10px;
+  }
+}
+
+/* LAPTOP STANDARD (1200px - 1599px) */
+@media (max-width: 1599px) and (min-width: 1200px) {
+  .manga-carousel {
+    max-width: 1200px;
+    padding: 0;
+  }
+}
+
+/* LAPTOP MIC (1024px - 1199px) */
+@media (max-width: 1199px) {
+  .manga-carousel {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+    background-size: 18px;
+  }
+
+  .carousel-arrow.left {
+    left: 8px;
+  }
+
+  .carousel-arrow.right {
+    right: 8px;
+  }
+
+  .manga-cell {
+    flex: 0 0 160px;
+  }
+}
+
+/* TABLET (769px - 1023px) */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .manga-carousel {
+    padding: 0;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    background-size: 16px;
+  }
+
+  .carousel-arrow.left {
+    left: 6px;
+  }
+
+  .carousel-arrow.right {
+    right: 6px;
+  }
+
+  .manga-cell {
+    flex: 0 0 140px;
+  }
+}
+
+/* MOBILE (768px and smaller) */
+@media (max-width: 768px) {
+  .manga-carousel {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .carousel-viewport {
+    padding: 0 10px;
+  }
+
+  .carousel-arrow {
+    width: 34px;
+    height: 34px;
+    background-size: 15px;
+    z-index: 20;
+  }
+
+  .carousel-arrow.left {
+    left: 0;
+  }
+
+  .carousel-arrow.right {
+    right: 0;
+  }
+
+  .manga-cell {
+    flex: 0 0 140px;
+    width: 140px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+
+  .manga-cell img {
+    width: 100%;
+    height: 100%;
+    
+  }
+}
+
+/* MOBILE MIC (≤480px) */
+@media (max-width: 480px) {
+  .manga-cell {
+    flex: 0 0 auto;
+    width: 38vw;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* CAROUSEL VIEWPORT WIDTH FIXES TO PREVENT PARTIAL ITEMS */
+/* ═════════════════════════════════════════════════════════════════ */
+
+/* Desktop mare (≥1600px) - Show exactly 7 items */
+@media (min-width: 1600px) {
+  .manga-carousel .carousel-viewport {
+    width: calc(7 * 180px + 6 * 16px); /* 1356px */
+  }
+}
+
+/* Laptop standard (1200px - 1599px) - Show exactly 6 items */
+@media (max-width: 1599px) and (min-width: 1200px) {
+  .manga-carousel .carousel-viewport {
+    width: calc(6 * 180px + 5 * 16px); /* 1160px */
+  }
+}
+
+/* Laptop mic (1024px - 1199px) - Show exactly 5 items */
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .manga-carousel .carousel-viewport {
+    width: calc(5 * 160px + 4 * 12px); /* 848px */
+  }
+}
+
+/* Tablet (769px - 1023px) - Show exactly 4 items */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .manga-carousel .carousel-viewport {
+    width: calc(4 * 140px + 3 * 12px); /* 596px */
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* LATEST UPDATES SECTION */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.latest-updates {
+  clear: both;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  background: var(--head);
+}
+
+.latest-updates .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.latest-updates .section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.latest-updates-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.latest-update-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+  transition: all 0.2s ease;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.latest-update-item:hover {
+  background: #252525;
+  border-color: #3a3a3a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.update-poster {
+  flex-shrink: 0;
+  width: 65px;
+  height: 87px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 12px;
+  border: 1px solid #333;
+}
+
+.update-poster img {
+  width: 100%;
+  height: 100%;
+  
+  transition: transform 0.2s ease;
+}
+
+.update-poster:hover img {
+  transform: scale(1.05);
+}
+
+.update-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.update-manga-info {
+  margin-bottom: 8px;
+}
+
+.update-manga-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  min-height: 2.4em;
+}
+
+.update-chapter-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.update-chapter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.update-chapter-link {
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.2;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.update-chapter-link:hover {
+  text-decoration: underline;
+}
+
+.language-flag {
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1;
+  margin-right: 2px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.language-flag.ro {
+  background: #ff0000 !important;
+  color: #ffffff !important;
+  border: 2px solid #000 !important;
+}
+
+.language-flag.en {
+  background: #012169;
+  color: #fff !important;
+}
+
+.chapter-lang-flag {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.chapter-lang-flag .flag-icon {
+  width: 16px;
+  height: 10px;
+  border-radius: 1px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
+}
+
+.flag-icon {
+  border-radius: 1px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
+  vertical-align: middle;
+}
+
+.update-chapter-link .language-flag {
+  color: inherit !important;
+}
+
+.update-comments {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #888;
+  font-size: 10px;
+  font-weight: 500;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.update-comments svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.update-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: #888;
+  margin-top: auto;
+  width: 100%;
+}
+
+.update-group {
+  color: #fff;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 6px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 11px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.update-group:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.update-comments {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #888;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.update-comments svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.update-time {
+  color: #666;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .latest-updates {
+    padding: 0 12px;
+  }
+  
+  .latest-updates-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .latest-update-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    break-inside: avoid;
+  }
+  
+  .update-poster {
+    width: 70px;
+    height: 95px;
+    margin-right: 12px;
+  }
+  
+  .update-manga-title {
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    min-height: 2.8em;
+  }
+  
+  .update-manga-info {
+    margin-bottom: 8px;
+    min-width: 0;
+    height: auto;
+  }
+  
+  .update-chapter-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    min-width: 0;
+  }
+  
+  .update-chapter-link {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .update-comments {
+    font-size: 10px;
+  }
+  
+  .update-comments svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .update-meta {
+    font-size: 10px;
+  }
+  
+  .update-group {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .update-time {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .latest-updates-list {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  
+  .latest-update-item {
+    padding: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .update-poster {
+    width: 65px;
+    height: 87px;
+    margin-right: 10px;
+  }
+  
+  .update-manga-title {
+    font-size: 15px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    min-height: 2.4em;
+  }
+  
+  .update-manga-info {
+    margin-bottom: 8px;
+    min-width: 0;
+    height: auto;
+  }
+  
+  .update-chapter-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+  
+  .update-chapter-link {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .update-comments {
+    font-size: 9px;
+  }
+  
+  .update-comments svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .update-meta {
+    font-size: 9px;
+  }
+  
+  .update-group {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+  
+  .update-time {
+    font-size: 10px;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* RECENT MANGA UPDATES SECTION */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.cele-mai-recente {
+  clear: both;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
+.cele-mai-recente .section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cele-mai-recente .section-header h2 {
+  font-size: 23px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.manga-last-chapters {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.chapter-pill {
+  background: #2b2b2b;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
+}
+
+.chapter-pill.new {
+  background: #13667a;
+  color: #fff;
+}
+
+.new-badge {
+  background: #d32f2f;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Keep chapter rows compact after placing NEW badge at row start */
+#latest-new-grid .chapter-row,
+#popular-recent-grid .chapter-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#latest-new-grid .chapter-title,
+#popular-recent-grid .chapter-title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#latest-new-grid .new-badge,
+#popular-recent-grid .new-badge {
+  flex-shrink: 0;
+}
+
+/* Prevent the 3rd column from getting squeezed on medium widths */
+#latest-new-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+#latest-new-grid .latest-manga-item,
+#latest-new-grid .latest-manga-info {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  #latest-new-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #latest-new-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* FRONT PAGE POSTER RATING OVERLAY */
+.manga-poster-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.rating-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
+
+/* last chapter shown on Popular Recent posters */
+.cele-mai-recente .last-chapter-overlay {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ═════════════════════════════════════════════════════════════════ */
+/* RECENT COMMENTS SECTION */
+/* ═════════════════════════════════════════════════════════════════ */
+
+.recent-comments-section {
+  max-width: 1200px;
+  margin: 24px auto 40px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.recent-comments-section .section-header {
+  margin-bottom: 28px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.recent-comments-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.recent-comments-section .section-header h2,
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: transparent !important;
+}
+
+.recent-comments-section {
+  background: var(--head);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.recent-comments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.recent-comment-card {
+  background: #7a828314;
+  border-radius: 8px;
+  border: 0.5px solid rgba(255, 255, 255, 0.07);
+  will-change: transform, opacity;
+}
+
+.recent-comment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(126, 138, 186, 0.15);
+}
+
+.recent-comment-card .comment-link {
+  display: flex;
+  gap: 9px;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.comment-manga-cover {
+  flex-shrink: 0;
+  width: 40px;
+  height: 56px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.comment-manga-cover img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.comment-author {
+  font-size: 12px;
+  color: #ccc8e8;
+  font-weight: 500;
+}
+
+.comment-level {
+  background: #2d2d52;
+  color: #9b97be;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 8px;
+}
+
+.chapter-badge {
+  background: #1a3a52;
+  color: #7ab2cc;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 6px;
+}
+
+.page-badge {
+  background: #2a1a3a;
+  color: #9b97be;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 6px;
+}
+
+.comment-text {
+  font-size: 11px;
+  color: #6e6b8a;
+}
+
+.comment-time {
+  font-size: 10px;
+  color: #4e4c66;
+  margin-left: auto;
+}
+
+.comment-manga-cover img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.comment-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  
+}
+
+.comment-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff; /* changed from green to white */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-level {
+  display: inline-block;
+  background: linear-gradient(135deg, #13667a 0%, #0d556a 100%);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+/* Level 50+ - Uncommon (Blue) */
+.comment-level.level-uncommon {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+/* Level 100+ - Rare (Purple) */
+.comment-level.level-rare {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+  animation: fp-level-pulse 2s ease-in-out infinite;
+}
+
+/* Level 150+ - Epic (Orange) */
+.comment-level.level-epic {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+  animation: fp-level-glow 2s ease-in-out infinite;
+}
+
+/* Level 200+ - Legendary (Rainbow) */
+.comment-level.level-legendary {
+  background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-size: 400% 100%;
+  animation: fp-level-rainbow 3s linear infinite;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+/* Level 250+ - Cosmic */
+.comment-level.level-cosmic {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  box-shadow: 0 0 15px rgba(15, 52, 96, 0.8), inset 0 0 10px rgba(102, 126, 234, 0.3);
+  animation: fp-level-cosmic 4s ease-in-out infinite;
+  border: 1px solid rgba(102, 126, 234, 0.5);
+}
+
+/* Level 300+ - Phoenix */
+.comment-level.level-phoenix {
+  background: linear-gradient(135deg, #ff4500 0%, #ff6347 30%, #ffa500 60%, #ff4500 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+  animation: fp-level-fire 1.5s ease-in-out infinite;
+}
+
+/* Level 350+ - Frost */
+.comment-level.level-frost {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #81ecec 100%);
+  box-shadow: 0 0 15px rgba(116, 185, 255, 0.6);
+  animation: fp-level-frost 3s ease-in-out infinite;
+  border: 1px solid rgba(129, 236, 236, 0.5);
+}
+
+/* Level 400+ - Shadow */
+.comment-level.level-shadow {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 50%, #0d0d0d 100%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 8px rgba(128, 0, 128, 0.3);
+  animation: fp-level-shadow 2s ease-in-out infinite;
+  border: 1px solid #444;
+}
+
+/* Level 450+ - Divine */
+.comment-level.level-divine {
+  background: linear-gradient(135deg, #ffd700 0%, #ffec8b 30%, #ffd700 60%, #daa520 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+  animation: fp-level-divine 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  color: #1a1a1a;
+}
+
+/* Level 500+ - Plasma */
+.comment-level.level-plasma {
+  background: linear-gradient(135deg, #00d4ff 0%, #7b2ff7 50%, #00d4ff 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 0 0 30px rgba(123, 47, 247, 0.3);
+  animation: fp-level-plasma 1s linear infinite;
+}
+
+/* Level 550+ - Nature */
+.comment-level.level-nature {
+  background: linear-gradient(135deg, #00ff00 0%, #32cd32 50%, #7fff00 100%);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  animation: fp-level-nature 3s ease-in-out infinite;
+  text-shadow: 0 0 3px rgba(0, 255, 0, 0.8);
+}
+
+/* Level 600+ - Blood */
+.comment-level.level-blood {
+  background: linear-gradient(135deg, #8b0000 0%, #dc143c 50%, #8b0000 100%);
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
+  animation: fp-level-blood 2s ease-in-out infinite;
+  border: 1px solid rgba(139, 0, 0, 0.8);
+}
+
+/* Level 650+ - Crystal */
+.comment-level.level-crystal {
+  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 25%, #c0c0c0 50%, #ffffff 75%, #e0e0e0 100%);
+  background-size: 300% 300%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), inset 0 0 8px rgba(200, 200, 200, 0.3);
+  animation: fp-level-crystal 4s linear infinite;
+  color: #333;
+}
+
+/* Level 700+ - Void */
+.comment-level.level-void {
+  background: radial-gradient(circle, #1a0a2e 0%, #000000 70%);
+  box-shadow: 0 0 25px rgba(75, 0, 130, 0.8), inset 0 0 15px rgba(148, 0, 211, 0.3);
+  animation: fp-level-void 3s ease-in-out infinite;
+  border: 2px solid #4b0082;
+}
+
+/* Level 750+ - Celestial */
+.comment-level.level-celestial {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #da70d6 100%);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+  animation: fp-level-celestial 2.5s ease-in-out infinite;
+}
+
+/* Level 800+ - Inferno */
+.comment-level.level-inferno {
+  background: linear-gradient(135deg, #ff4500 0%, #8b0000 25%, #ff6600 50%, #ff4500 75%, #8b0000 100%);
+  background-size: 400% 400%;
+  box-shadow: 0 0 25px rgba(255, 69, 0, 0.7), 0 0 50px rgba(139, 0, 0, 0.4);
+  animation: fp-level-inferno 2s ease-in-out infinite;
+}
+
+/* Level 850+ - Arctic */
+.comment-level.level-arctic {
+  background: linear-gradient(135deg, #f0f8ff 0%, #87ceeb 30%, #add8e6 60%, #f0ffff 100%);
+  box-shadow: 0 0 20px rgba(135, 206, 235, 0.6), 0 0 40px rgba(240, 255, 255, 0.3);
+  animation: fp-level-arctic 3s ease-in-out infinite;
+  color: #1a3a5c;
+}
+
+/* Level 900+ - Omega */
+.comment-level.level-omega {
+  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000);
+  background-size: 600% 100%;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5), 0 0 50px rgba(0, 255, 0, 0.3), 0 0 75px rgba(0, 0, 255, 0.2);
+  animation: fp-level-omega 2s linear infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Level 950+ - Transcendent */
+.comment-level.level-transcend {
+  background: linear-gradient(135deg, #000000 0%, #1a1a2e 20%, #ffd700 40%, #ffffff 50%, #ffd700 60%, #1a1a2e 80%, #000000 100%);
+  background-size: 400% 400%;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 215, 0, 0.3);
+  animation: fp-level-transcend 4s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 215, 0, 0.8);
+  border: 2px solid rgba(255, 215, 0, 0.8);
+}
+
+/* Front-page level animations */
+@keyframes fp-level-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.9; }
+}
+
+@keyframes fp-level-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(243, 156, 18, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(243, 156, 18, 0.8); }
+}
+
+@keyframes fp-level-rainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+@keyframes fp-level-cosmic {
+  0%, 100% { box-shadow: 0 0 15px rgba(15, 52, 96, 0.8), inset 0 0 10px rgba(102, 126, 234, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.9), inset 0 0 20px rgba(102, 126, 234, 0.5); }
+}
+
+@keyframes fp-level-fire {
+  0%, 100% { background-position: 0% 50%; box-shadow: 0 0 15px rgba(255, 69, 0, 0.6); }
+  50% { background-position: 100% 50%; box-shadow: 0 0 30px rgba(255, 165, 0, 0.8); }
+}
+
+@keyframes fp-level-frost {
+  0%, 100% { box-shadow: 0 0 15px rgba(116, 185, 255, 0.6); filter: brightness(1); }
+  50% { box-shadow: 0 0 30px rgba(129, 236, 236, 0.8); filter: brightness(1.1); }
+}
+
+@keyframes fp-level-shadow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 8px rgba(128, 0, 128, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), 0 0 15px rgba(128, 0, 128, 0.5); }
+}
+
+@keyframes fp-level-divine {
+  0%, 100% { background-position: 0% 50%; box-shadow: 0 0 20px rgba(255, 215, 0, 0.7); }
+  50% { background-position: 100% 50%; box-shadow: 0 0 35px rgba(255, 236, 139, 0.9); }
+}
+
+@keyframes fp-level-plasma {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes fp-level-nature {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); filter: brightness(1); }
+  50% { box-shadow: 0 0 30px rgba(127, 255, 0, 0.7); filter: brightness(1.15); }
+}
+
+@keyframes fp-level-blood {
+  0%, 100% { box-shadow: 0 0 15px rgba(220, 20, 60, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(139, 0, 0, 0.9); }
+}
+
+@keyframes fp-level-crystal {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 300%; }
+}
+
+@keyframes fp-level-void {
+  0%, 100% { box-shadow: 0 0 25px rgba(75, 0, 130, 0.8), inset 0 0 15px rgba(148, 0, 211, 0.3); }
+  50% { box-shadow: 0 0 45px rgba(148, 0, 211, 0.9), inset 0 0 25px rgba(75, 0, 130, 0.5); }
+}
+
+@keyframes fp-level-celestial {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.6); filter: hue-rotate(0deg); }
+  50% { box-shadow: 0 0 35px rgba(218, 112, 214, 0.8); filter: hue-rotate(15deg); }
+}
+
+@keyframes fp-level-inferno {
+  0%, 100% { background-position: 0% 50%; box-shadow: 0 0 25px rgba(255, 69, 0, 0.7), 0 0 50px rgba(139, 0, 0, 0.4); }
+  50% { background-position: 100% 50%; box-shadow: 0 0 45px rgba(255, 102, 0, 0.9), 0 0 70px rgba(255, 69, 0, 0.5); }
+}
+
+@keyframes fp-level-arctic {
+  0%, 100% { box-shadow: 0 0 20px rgba(135, 206, 235, 0.6), 0 0 40px rgba(240, 255, 255, 0.3); filter: brightness(1); }
+  50% { box-shadow: 0 0 35px rgba(173, 216, 230, 0.8), 0 0 60px rgba(240, 255, 255, 0.5); filter: brightness(1.1); }
+}
+
+@keyframes fp-level-omega {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 600% 50%; }
+}
+
+@keyframes fp-level-transcend {
+  0%, 100% { background-position: 0% 0%; box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 255, 255, 0.4); }
+  50% { background-position: 100% 100%; box-shadow: 0 0 50px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 215, 0, 0.6); }
+}
+
+.comment-time {
+  font-size: 11px;
+  color: #666;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Prevent only popular section title from wrapping on mobile */
+@media (max-width: 768px) {
+  .popular-manga .section-title {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    font-size: 21px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+.comment-manga-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comment-manga-info .manga-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #f0f8ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  text-transform: uppercase;
+}
+
+.comment-manga-info .chapter-badge {
+  font-size: 10px;
+  background-color: rgba(52, 152, 219, 0.3);
+  color: #FFF;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.comment-text {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recent-comments-section .no-comments {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}
+
+/* Responsive - Large screens */
+@media (max-width: 1599px) and (min-width: 1200px) {
+  .recent-comments-section {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .recent-comments-section {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .recent-comments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .recent-comments-section {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .recent-comments-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comment-manga-cover {
+    width: 50px;
+    height: 65px;
+  }
+  
+  .comment-manga-info .manga-name {
+    max-width: 120px;
+  }
+}
+
+/* Blur effect for sensitive manga covers on front page - merged rules */
+img.blur-image {
+  filter: blur(8px);
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+img.blur-image:hover {
+  filter: blur(0px);
+  transform: scale(1.05);
+}
+
+/* ── SEO text block ──────────────────────────────────── */
+.fp-seo-section {
+  padding: 5px !important;
+  margin-top: inherit;
+  border-radius: 0 0 10px 10px;
+  padding-bottom: 15px !important;
+}
+
+.fp-seo-inner {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 30px;
+}
+
+.fp-seo-title {
+     font-size: 25px;
+    text-align: center;
+    font-weight: 500
+}
+
+.fp-seo-body {
+  font-size: 1rem;
+  line-height: 1.3;
+  word-wrap: break-word;
+  color: #a0a0a0;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .fp-seo-title {
+    font-size: 20px;
+  }
+
+  .fp-seo-inner {
+    padding: 0 16px;
+  }
+}
+

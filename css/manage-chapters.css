@@ -1,0 +1,140 @@
+.manage-chapters-page {
+  padding: 30px 20px;
+}
+
+.manage-chapters-page .page-header {
+  max-width: 920px;
+  margin: 0 auto 24px;
+}
+
+.manage-chapters-page .page-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.manage-chapters-notice {
+  max-width: 920px;
+  margin: 0 auto 20px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.manage-chapters-notice.success {
+  background: rgba(3, 199, 90, 0.15);
+  border-color: rgba(3, 199, 90, 0.4);
+  color: #0b522e;
+}
+
+.manage-chapters-notice.error {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: rgba(231, 76, 60, 0.4);
+  color: #6f1c1c;
+}
+
+.manage-chapters-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 920px;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .manage-chapters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.manage-chapters-section {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.manage-chapters-section h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.manage-chapters-form label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.manage-chapters-form label span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.manage-chapters-form input[type="text"],
+.manage-chapters-form input[type="url"],
+.manage-chapters-form input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.manage-chapters-form input[type="text"]::placeholder,
+.manage-chapters-form input[type="url"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.manage-chapters-form .btn-primary,
+.manage-chapters-form .btn-secondary {
+  margin-top: 12px;
+}
+
+.manage-chapters-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.manage-chapters-table th,
+.manage-chapters-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  font-size: 14px;
+}
+
+.manage-chapters-table th {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.manage-chapters-table tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.image-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.image-input-row input {
+  flex: 1;
+}
+
+.image-input-row button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.image-input-row button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
